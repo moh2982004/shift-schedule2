@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام المناوبات - 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: center;
+      padding: 20px;
+      background: #f5f7fa;
+      margin: 0;
+    }
+    .card {
+      border: 1px solid #ddd;
+      padding: 30px;
+      border-radius: 10px;
+      background: #fff;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2a4d8f;
+      margin-bottom: 30px;
+    }
+    #nowTime {
+      color: #555;
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    #result {
+      background: #f0f7ff;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 25px 0;
+      font-size: 20px;
+      border-left: 5px solid #2a4d8f;
+    }
+    .info {
+      text-align: right;
+      margin-top: 25px;
+      line-height: 1.8;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      font-size: 17px;
+    }
+    strong {
+      color: #2a4d8f;
+    }
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .controls {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 8px;
+    }
+    input[type="date"], button {
+      padding: 8px 15px;
+      margin: 0 5px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    button {
+      background: #2a4d8f;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1d3a6b;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>الفريق المناوب حاليًا</h1>
+    <div class="controls">
+      <label for="testDate">اختبار تاريخ:</label>
+      <input type="date" id="testDate" min="2025-01-01" max="2025-12-31">
+      <button onclick="testSpecificDate()">اختبار</button>
+      <button onclick="resetToCurrent()">العودة للتاريخ الحالي</button>
+    </div>
+    <p id="nowTime"></p>
+    <div id="result">جاري التحميل...</div>
+    <div class="info" id="teamInfo"></div>
+  </div>
+
+  <script>
+    // بيانات الفرق
+    const teamDetails = {
+      "A": {
+        chief: "Adil MAHFOUD",
+        chiefPhone: "0625124293",
+        vice: "Nouredddine TOUNCHIFTE",
+        vicePhone: "0669621024"
+      },
+      "B": {
+        chief: "Lhoucine ER-RAMY",
+        chiefPhone: "0661685788",
+        vice: "Mustapha ALAOUI",
+        vicePhone: "0619296879"
+      },
+      "C": {
+        chief: "Amine HACHKACH",
+        chiefPhone: "0625125027",
+        vice: "Mohamed ET-TAOUS",
+        vicePhone: "0666012883"
+      },
+      "D": {
+        chief: "Rachid MAHJOUBI",
+        chiefPhone: "0625125026",
+        vice: "Ismail LAMZAOUK",
+        vicePhone: "0669627490"
+      }
+    };
+
+    // أوقات الدوام
+    const shiftHours = {
+      "صباح": { start: 7, end: 15 },
+      "مساء": { start: 15, end: 23 },
+      "ليل": { start: 23, end: 7 }
+    };
+
+    // النمط الدوري 24 يوم (من 1 يوليو 2025)
+    const shiftPattern = [
+      {"A": "صباح", "C": "ليل", "D": "مساء"},  // 1/7
+      {"A": "صباح", "C": "ليل", "D": "مساء"},  // 2/7
+      {"A": "صباح", "B": "ليل", "D": "مساء"},  // 3/7
+      {"A": "صباح", "B": "ليل", "D": "مساء"},  // 4/7
+      {"A": "صباح", "B": "ليل", "C": "مساء"},  // 5/7
+      {"A": "صباح", "B": "ليل", "C": "مساء"},  // 6/7
+      {"B": "ليل", "C": "مساء", "D": "صباح"},  // 7/7
+      {"B": "ليل", "C": "مساء", "D": "صباح"},  // 8/7
+      {"A": "ليل", "C": "مساء", "D": "صباح"},  // 9/7
+      {"A": "ليل", "C": "مساء", "D": "صباح"},  // 10/7
+      {"A": "ليل", "B": "مساء", "D": "صباح"},  // 11/7
+      {"A": "ليل", "B": "مساء", "D": "صباح"},  // 12/7
+      {"A": "ليل", "B": "مساء", "C": "صباح"},  // 13/7
+      {"A": "ليل", "B": "مساء", "C": "صباح"},  // 14/7
+      {"B": "مساء", "C": "صباح", "A": "ليل"},  // 15/7
+      {"B": "مساء", "C": "صباح", "A": "ليل"},  // 16/7
+      {"A": "مساء", "C": "صباح", "D": "ليل"},  // 17/7
+      {"A": "مساء", "C": "صباح", "D": "ليل"},  // 18/7
+      {"A": "مساء", "B": "صباح", "D": "ليل"},  // 19/7
+      {"A": "مساء", "B": "صباح", "D": "ليل"},  // 20/7
+      {"A": "مساء", "B": "صباح", "C": "ليل"},  // 21/7
+      {"A": "مساء", "B": "صباح", "C": "ليل"},  // 22/7
+      {"B": "صباح", "C": "ليل", "D": "مساء"},  // 23/7
+      {"B": "صباح", "C": "ليل", "D": "مساء"}   // 24/7
+    ];
+
+    // تاريخ بداية النمط
+    const patternStartDate = new Date(2025, 6, 1); // 1 يوليو 2025
+
+    // إنشاء جدول المناوبات
+    function generateSchedule() {
+      const schedule = {};
+      const startDate = new Date(2025, 0, 1); // 1 يناير 2025
+      const endDate = new Date(2025, 11, 31); // 31 ديسمبر 2025
+      
+      for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
+        const dateKey = formatDate(date);
+        
+        // حساب الفرق بالأيام من بداية النمط
+        const diffDays = Math.floor((date - patternStartDate) / (1000 * 60 * 60 * 24));
+        
+        if (diffDays >= 0) {
+          const patternIndex = diffDays % shiftPattern.length;
+          schedule[dateKey] = shiftPattern[patternIndex];
+        } else {
+          // الفترة قبل 1 يوليو 2025 (يمكن تعيينها كراحة أو نمط مختلف)
+          schedule[dateKey] = {"A": "راحة", "B": "راحة", "C": "راحة", "D": "راحة"};
+        }
+      }
+      
+      return schedule;
+    }
+
+    // تنسيق التاريخ
+    function formatDate(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    // العثور على الفريق النشط
+    function findActiveTeam(now, schedule) {
+      const hour = now.getHours();
+      const currentDateKey = formatDate(now);
+      const prevDate = new Date(now);
+      prevDate.setDate(prevDate.getDate() - 1);
+      const prevDateKey = formatDate(prevDate);
+
+      // البحث في يوم اليوم
+      if (schedule[currentDateKey]) {
+        for (const [team, shift] of Object.entries(schedule[currentDateKey])) {
+          if (shift === "راحة") continue;
+          
+          const { start, end } = shiftHours[shift];
+          
+          if (start < end) {
+            if (hour >= start && hour < end) return { team, shift };
+          } else {
+            if (hour >= start || hour < end) return { team, shift };
+          }
+        }
+      }
+
+      // البحث في اليوم السابق (للنوبات الليلية)
+      if (schedule[prevDateKey]) {
+        for (const [team, shift] of Object.entries(schedule[prevDateKey])) {
+          if (shift !== "ليل") continue;
+          
+          const { start, end } = shiftHours[shift];
+          if (hour >= start || hour < end) {
+            return { team, shift };
+          }
+        }
+      }
+
+      return null;
+    }
+
+    // تحديث العرض
+    function updateDisplay(now = new Date()) {
+      const schedule = generateSchedule();
+      
+      // عرض التاريخ والوقت
+      document.getElementById("nowTime").textContent = now.toLocaleString("ar-MA", {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+
+      const activeTeam = findActiveTeam(now, schedule);
+      const resultEl = document.getElementById("result");
+      const teamInfoEl = document.getElementById("teamInfo");
+
+      if (activeTeam) {
+        const { team, shift } = activeTeam;
+        const info = teamDetails[team];
+        
+        resultEl.innerHTML = `
+          الفريق: <strong>${team}</strong><br>
+          الدوام: <strong>${shift}</strong> (${shiftHours[shift].start}:00 - ${shiftHours[shift].end}:00)
+        `;
+        
+        teamInfoEl.innerHTML = `
+          <strong>رئيس الفريق:</strong> ${info.chief} — <a href="tel:${info.chiefPhone}">${info.chiefPhone}</a><br>
+          <strong>نائب الرئيس:</strong> ${info.vice} — <a href="tel:${info.vicePhone}">${info.vicePhone}</a>
+        `;
+      } else {
+        resultEl.textContent = "لا يوجد فريق يعمل حاليًا (وقت راحة)";
+        teamInfoEl.innerHTML = "";
+      }
+    }
+
+    // اختبار تاريخ معين
+    function testSpecificDate() {
+      const dateInput = document.getElementById("testDate").value;
+      if (!dateInput) return;
+      
+      const date = new Date(dateInput);
+      const hour = prompt("أدخل الساعة (0-23):", new Date().getHours());
+      if (hour === null) return;
+      
+      date.setHours(parseInt(hour) || 0);
+      updateDisplay(date);
+    }
+
+    // العودة للتاريخ الحالي
+    function resetToCurrent() {
+      updateDisplay();
+    }
+
+    // التشغيل الأولي والتحديث الدوري
+    document.addEventListener('DOMContentLoaded', function() {
+      // تعيين تاريخ اليوم كقيمة افتراضية في حقل الاختبار
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById("testDate").value = today;
+      
+      updateDisplay();
+      setInterval(updateDisplay, 1000);
+    });
+  </script>
+</body>
+</html>
