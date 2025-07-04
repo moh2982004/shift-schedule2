@@ -5,97 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>نظام المناوبات - 2025</title>
   <style>
-    /* إعدادات التصميم العامة - محمد العبد */
-    body {
-      font-family: Arial, sans-serif;
-      direction: rtl;
-      text-align: center;
-      padding: 20px;
-      background: #f5f7fa;
-      margin: 0;
-    }
-    .card {
-      border: 1px solid #ddd;
-      padding: 30px;
-      border-radius: 10px;
-      background: #fff;
-      max-width: 700px;
-      margin: 0 auto;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #2a4d8f;
-      margin-bottom: 30px;
-    }
-    #nowTime {
-      color: #555;
-      margin: 20px 0;
-      font-size: 18px;
-    }
-    #result {
-      background: #f0f7ff;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 25px 0;
-      font-size: 20px;
-      border-left: 5px solid #2a4d8f;
-    }
-    .info {
-      text-align: right;
-      margin-top: 25px;
-      line-height: 1.8;
-      padding: 15px;
-      background: #f9f9f9;
-      border-radius: 8px;
-      font-size: 17px;
-    }
-    strong {
-      color: #2a4d8f;
-    }
-    a {
-      color: #1a73e8;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .controls {
-      margin: 20px 0;
-      padding: 15px;
-      background: #f0f0f0;
-      border-radius: 8px;
-    }
-    .time-control {
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    input[type="date"], input[type="time"], button {
-      padding: 8px 15px;
-      margin: 0 5px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-    }
-    button {
-      background: #2a4d8f;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #1d3a6b;
-    }
-    .button-group {
-      margin-top: 15px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-  </style>
+  body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    text-align: center;
+    padding: 20px;
+    background: #ffffff; /* أبيض */
+    margin: 0;
+  }
+  .card {
+    border: 1px solid #ccc;
+    padding: 30px;
+    border-radius: 10px;
+    background: #FFA500; /* برتقالي فاتح */
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    color: #000000; /* أسود */
+    margin-bottom: 30px;
+  }
+  #nowTime {
+    color: #000000; /* أسود */
+    margin: 20px 0;
+    font-size: 18px;
+  }
+  #result {
+    background: #fff5e5; /* برتقالي فاتح جداً */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    font-size: 20px;
+    border-left: 5px solid #000000; /* خط أسود */
+    color: #000000;
+  }
+  .info {
+    text-align: right;
+    margin-top: 25px;
+    line-height: 1.8;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    font-size: 17px;
+    color: #000000;
+  }
+  strong {
+    color: #000000; /* أسود */
+  }
+  a {
+    color: #1a73e8; /* أزرق - للاحتفاظ بلون الهاتف */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .controls {
+    margin: 20px 0;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+  .time-control {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  input[type="date"], input[type="time"], button {
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+  }
+  button {
+    background: #000000; /* أسود */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: #444;
+  }
+  .button-group {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+.signature {
+  text-align: left;
+  font-size: 14px;
+  color: #000;
+  margin-top: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  direction: rtl;
+}
+
+</style>
+
+
 </head>
 <body>
   <div class="card">
@@ -103,7 +116,7 @@
     <!-- أدوات التحكم في الوقت - محمد العبد -->
     <div class="controls">
       <div>
-        <label for="testDate">اختبار تاريخ:</label>
+        <label for="testDate">اختر تاريخ:</label>
         <input type="date" id="testDate" min="2025-01-01" max="2025-12-31">
       </div>
       <div class="time-control">
@@ -118,6 +131,7 @@
     <p id="nowTime"></p>
     <div id="result">جاري التحميل...</div>
     <div class="info" id="teamInfo"></div>
+    <div class="signature">فكرة وتصميم وتنفيذ: محمد العبد</div>
   </div>
 
   <script>
