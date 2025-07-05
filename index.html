@@ -105,6 +105,13 @@
   padding-top: 10px;
   direction: rtl;
 }
+.logo-container {
+  text-align: left;
+}
+.logo-container img {
+  height: 60px;
+  margin-bottom: 10px;
+}
 
 </style>
 
@@ -112,8 +119,15 @@
 </head>
 <body>
   <div class="card">
+<div class="logo-container">
+  <img src="mobilize-logo.png" alt="Mobilize Logo">
+</div>
     <h1>الفريق المناوب حاليًا</h1>
-    <!-- أدوات التحكم في الوقت - محمد العبد -->
+   
+    <p id="nowTime"></p>
+    <div id="result">جاري التحميل...</div>
+    <div class="info" id="teamInfo"></div>
+ <!-- أدوات التحكم في الوقت - محمد العبد -->
     <div class="controls">
       <div>
         <label for="testDate">اختر تاريخ:</label>
@@ -128,9 +142,6 @@
         <button onclick="resetToCurrent()">عرض الوضع الحالي</button>
       </div>
     </div>
-    <p id="nowTime"></p>
-    <div id="result">جاري التحميل...</div>
-    <div class="info" id="teamInfo"></div>
     <div class="signature">فكرة وتصميم وتنفيذ: محمد العبد</div>
   </div>
 
