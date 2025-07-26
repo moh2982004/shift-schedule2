@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -5,129 +6,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>نظام المناوبات - 2025</title>
   <style>
-  body {
-    font-family: Arial, sans-serif;
-    direction: rtl;
-    text-align: center;
-    padding: 20px;
-    background: #ffffff; /* أبيض */
-    margin: 0;
-  }
-  .card {
-    border: 1px solid #ccc;
-    padding: 30px;
-    border-radius: 10px;
-    background: #FFA500; /* برتقالي فاتح */
-    max-width: 700px;
-    margin: 0 auto;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-  }
-  h1 {
-    color: #000000; /* أسود */
-    margin-bottom: 30px;
-  }
-  #nowTime {
-    color: #000000; /* أسود */
-    margin: 20px 0;
-    font-size: 18px;
-  }
-  #result {
-    background: #fff5e5; /* برتقالي فاتح جداً */
-    padding: 20px;
-    border-radius: 8px;
-    margin: 25px 0;
-    font-size: 20px;
-    border-left: 5px solid #000000; /* خط أسود */
-    color: #000000;
-  }
-  .info {
-    text-align: right;
-    margin-top: 25px;
-    line-height: 1.8;
-    padding: 15px;
-    background: #ffffff;
-    border-radius: 8px;
-    font-size: 17px;
-    color: #000000;
-  }
-  strong {
-    color: #000000; /* أسود */
-  }
-  a {
-    color: #1a73e8; /* أزرق - للاحتفاظ بلون الهاتف */
-    text-decoration: none;
-    font-weight: bold;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  .controls {
-    margin: 20px 0;
-    padding: 15px;
-    background: #ffffff;
-    border-radius: 8px;
-  }
-  .time-control {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  input[type="date"], input[type="time"], button {
-    padding: 8px 15px;
-    margin: 0 5px;
-    border-radius: 5px;
-    border: 1px solid #aaa;
-  }
-  button {
-    background: #000000; /* أسود */
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  button:hover {
-    background: #444;
-  }
-  .button-group {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-.signature {
-  text-align: left;
-  font-size: 14px;
-  color: #000;
-  margin-top: 30px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 10px;
-  direction: rtl;
-}
-.logo-container {
-  text-align: left;
-}
-.logo-container img {
-  height: 60px;
-  margin-bottom: 10px;
-}
-
-</style>
-
-
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: center;
+      padding: 20px;
+      background: #ffffff;
+      margin: 0;
+    }
+    .card {
+      border: 1px solid #ccc;
+      padding: 30px;
+      border-radius: 10px;
+      background: #FFA500;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #000000;
+      margin-bottom: 30px;
+    }
+    #nowTime {
+      color: #000000;
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    #result {
+      background: #fff5e5;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 25px 0;
+      font-size: 20px;
+      border-left: 5px solid #000000;
+      color: #000000;
+    }
+    .info {
+      text-align: right;
+      margin-top: 25px;
+      line-height: 1.8;
+      padding: 15px;
+      background: #ffffff;
+      border-radius: 8px;
+      font-size: 17px;
+      color: #000000;
+    }
+    strong {
+      color: #000000;
+    }
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .controls {
+      margin: 20px 0;
+      padding: 15px;
+      background: #ffffff;
+      border-radius: 8px;
+    }
+    .time-control {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    input[type="date"], input[type="time"], button {
+      padding: 8px 15px;
+      margin: 0 5px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+    button {
+      background: #000000;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #444;
+    }
+    .button-group {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .signature {
+      text-align: left;
+      font-size: 14px;
+      color: #000;
+      margin-top: 30px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding-top: 10px;
+      direction: rtl;
+    }
+    .logo-container {
+      text-align: left;
+    }
+    .logo-container img {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+    @keyframes blink {
+      0%, 100% { color: #000000; }
+      50% { color: #FFA500; }
+    }
+    .blinking {
+      animation: blink 1s infinite;
+    }
+  </style>
 </head>
 <body>
   <div class="card">
-<div class="logo-container">
-  <img src="mobilize-logo.png" alt="Mobilize Logo">
-</div>
+    <div class="logo-container">
+      <img src="mobilize-logo.png" alt="Mobilize Logo">
+    </div>
     <h1>الفريق المناوب حاليًا</h1>
-   
     <p id="nowTime"></p>
     <div id="result">جاري التحميل...</div>
     <div class="info" id="teamInfo"></div>
- <!-- أدوات التحكم في الوقت - محمد العبد -->
     <div class="controls">
       <div>
         <label for="testDate">اختر تاريخ:</label>
@@ -146,22 +149,15 @@
   </div>
 
   <script>
-    // معلومات الفرق المناوبة - إعداد محمد العبد
+    // معلومات الفرق المناوبة
     const teamDetails = {
       "A": { chief: "Adil MAHFOUD", chiefPhone: "0625124293", vice: "Nouredddine TOUNCHIFTE", vicePhone: "0669621024" },
       "B": { chief: "Lhoucine ER-RAMY", chiefPhone: "0661685788", vice: "Mustapha ALAOUI", vicePhone: "0619296879" },
-      "C": { chief: "Amine HACHKACH", chiefPhone: "0625125027", vice: "Mohamed ET-TAOUS", vicePhone: "0666012883" },
+      "C": { chief: "Amine HACHKACH", chiefPhone: "0625125027", vice: "لا يتوفر", vicePhone: "_" },
       "D": { chief: "Ismail LAMZAOUK", chiefPhone: "0669627490", vice: "Mouad TALHA", vicePhone: "0666058611" }
     };
 
-    // أوقات الدوام حسب النظام الداخلي - محمد العبد
-    const shiftHours = {
-      "صباح": { start: 7, end: 15 },
-      "مساء": { start: 15, end: 23 },
-      "ليل": { start: 23, end: 7 }
-    };
-
-    // نمط التناوب المعتمد - إعداد محمد العبد
+    // نمط التناوب المعتمد
     const shiftPattern = [
       {"A": "صباح", "C": "ليل", "D": "مساء"}, {"A": "صباح", "C": "ليل", "D": "مساء"},
       {"A": "صباح", "B": "ليل", "D": "مساء"}, {"A": "صباح", "B": "ليل", "D": "مساء"},
@@ -177,11 +173,42 @@
       {"B": "صباح", "C": "ليل", "D": "مساء"}, {"B": "صباح", "C": "ليل", "D": "مساء"}
     ];
 
-    const patternStartDate = new Date(2025, 6, 1); // بداية النمط 1 يوليوز - محمد العبد
+    const patternStartDate = new Date(2025, 6, 1); // بداية النمط 1 يوليوز
     let isTestingMode = false;
     let updateInterval;
 
-    // توليد جدول التناوب لكامل السنة - محمد العبد
+    // تحديد أوقات الشفتات حسب اليوم
+   function getShiftHours(dayOfWeek) {
+  if (dayOfWeek === 6) { // السبت
+    return {
+      "صباح": { start: 7, end: 15 },
+      "مساء": { start: 15, end: 23.25 },  // 23:15
+      "ليل": { start: 23.25, end: 7 }     // 23:15 - 07:00
+    };
+  } else if (dayOfWeek === 0) { // الأحد
+    return {
+      "صباح": { start: 7, end: 15 },
+      "مساء": { start: 15, end: 22.5 },   // 22:30
+      "ليل": { start: 22.5, end: 6.5 }    // 22:30 - 06:30
+    };
+  } else if (dayOfWeek === 1) { // الإثنين
+    return {
+      "صباح": { start: 6.5, end: 15 },    // 06:30 - 15:00
+      "مساء": { start: 15, end: 23 },
+      "ليل": { start: 23, end: 7 }
+    };
+  } else {
+    return {
+      "صباح": { start: 7, end: 15 },
+      "مساء": { start: 15, end: 23 },
+      "ليل": { start: 23, end: 7 }
+    };
+  }
+}
+
+
+
+    // توليد جدول التناوب لكامل السنة
     function generateSchedule() {
       const schedule = {};
       const startDate = new Date(2025, 0, 1);
@@ -201,55 +228,108 @@
       return `${year}-${month}-${day}`;
     }
 
-    // تحديد الفريق النشط بناءً على الساعة - محمد العبد
+    // تحديد الفريق النشط بناءً على الساعة واليوم
     function findActiveTeam(now, schedule) {
-      const hour = now.getHours();
-      const currentDateKey = formatDate(now);
-      const prevDate = new Date(now);
-      prevDate.setDate(prevDate.getDate() - 1);
-      const prevDateKey = formatDate(prevDate);
+  const hour = now.getHours() + now.getMinutes() / 60;
+  let shiftDate = new Date(now);
+  let adjustedDay = shiftDate.getDay();
 
-      if (schedule[currentDateKey]) {
-        for (const [team, shift] of Object.entries(schedule[currentDateKey])) {
-          if (shift === "راحة") continue;
-          const { start, end } = shiftHours[shift];
-          if (start < end ? (hour >= start && hour < end) : (hour >= start || hour < end)) {
-            return { team, shift };
-          }
-        }
+  // نحسب بداية الشفت الصباحي حسب اليوم
+  let morningStart = (adjustedDay === 1) ? 6.5 : 7;
+
+  // إذا كنا قبل بداية الشفت الصباحي، نحسب الشفت من اليوم السابق
+  if (hour < morningStart) {
+    shiftDate.setDate(shiftDate.getDate() - 1);
+    adjustedDay = shiftDate.getDay();
+  }
+
+  const shiftDateKey = formatDate(shiftDate);
+  const shiftHours = getShiftHours(adjustedDay); // نستخدم اليوم المعدل
+
+  // تحديد الشفت الحالي حسب الساعة واليوم
+  let currentShift;
+  if (hour >= shiftHours["صباح"].start && hour < shiftHours["صباح"].end) {
+    currentShift = "صباح";
+  } 
+  else if (hour >= shiftHours["مساء"].start && hour < shiftHours["مساء"].end) {
+    currentShift = "مساء";
+  } 
+  else {
+    currentShift = "ليل";
+  }
+
+  // البحث عن الفريق النشط في الشفت الحالي
+  if (schedule[shiftDateKey]) {
+    for (const [team, shift] of Object.entries(schedule[shiftDateKey])) {
+      if (shift === currentShift) {
+        return { 
+          team, 
+          shift,
+          displayDate: new Date(now),
+          shiftHours: shiftHours[currentShift]
+        };
       }
+    }
+  }
 
-      if (schedule[prevDateKey]) {
-        for (const [team, shift] of Object.entries(schedule[prevDateKey])) {
-          if (shift === "ليل" && (hour >= shiftHours[shift].start || hour < shiftHours[shift].end)) {
-            return { team, shift };
-          }
-        }
-      }
+  return null;
+}
 
-      return null;
+    function formatTime(time) {
+      const hours = Math.floor(time);
+      const minutes = Math.round((time - hours) * 60);
+      return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
     }
 
     function updateDisplay(now = new Date()) {
       const schedule = generateSchedule();
-      document.getElementById("nowTime").textContent = now.toLocaleString("ar-MA", {
+      const activeTeam = findActiveTeam(now, schedule);
+      
+      const displayDate = activeTeam?.displayDate || now;
+      document.getElementById("nowTime").textContent = displayDate.toLocaleString("ar-MA", {
         weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
         hour: '2-digit', minute: '2-digit', second: '2-digit'
       });
-      const activeTeam = findActiveTeam(now, schedule);
+      
       const resultEl = document.getElementById("result");
       const teamInfoEl = document.getElementById("teamInfo");
 
       if (activeTeam) {
-        const { team, shift } = activeTeam;
+        const { team, shift, shiftHours } = activeTeam;
         const info = teamDetails[team];
-        resultEl.innerHTML = `الفريق: <strong>${team}</strong><br>الدوام: <strong>${shift}</strong> (${shiftHours[shift].start}:00 - ${shiftHours[shift].end}:00)`;
+        const startTime = formatTime(shiftHours.start);
+        const endTime = formatTime(shiftHours.end);
+        
+        resultEl.innerHTML = `الفريق: <strong>${team}</strong><br>الدوام: <strong>${shift}</strong> (${startTime} - ${endTime})`;
         teamInfoEl.innerHTML = `<strong>رئيس الفريق:</strong> ${info.chief} — <a href="tel:${info.chiefPhone}">${info.chiefPhone}</a><br>
           <strong>نائب الرئيس:</strong> ${info.vice} — <a href="tel:${info.vicePhone}">${info.vicePhone}</a>`;
       } else {
         resultEl.textContent = "لا يوجد فريق يعمل حاليًا (وقت راحة)";
         teamInfoEl.innerHTML = "";
       }
+      
+      // إظهار صلاة الجمعة
+      const isFriday = displayDate.getDay() === 5;
+      const totalMinutes = displayDate.getHours() * 60 + displayDate.getMinutes();
+     if (isFriday && totalMinutes >= 14 * 60 + 30 && totalMinutes <= 15 * 60 + 15) {
+  const prayerNote = document.createElement("div");
+  prayerNote.classList.add("blinking");
+  prayerNote.style.marginTop = "10px";
+  prayerNote.style.fontWeight = "bold";
+  prayerNote.style.color = "#000000";
+  prayerNote.textContent = "🕌 صلاة الجمعة";
+
+  const timeNote = document.createElement("div");
+  timeNote.textContent = "من 14:30 إلى 15:15";
+  timeNote.style.fontWeight = "normal";
+  timeNote.style.color = "#000000";
+  timeNote.style.marginTop = "5px";
+timeNote.style.fontSize = "12px";
+
+  resultEl.appendChild(prayerNote);
+  resultEl.appendChild(timeNote);
+}
+
     }
 
     function testSpecificDate() {
@@ -277,7 +357,7 @@
       }, 1000);
     }
 
-    // بدء التشغيل التلقائي عند تحميل الصفحة - محمد العبد
+    // بدء التشغيل التلقائي عند تحميل الصفحة
     document.addEventListener('DOMContentLoaded', function() {
       const now = new Date();
       document.getElementById("testDate").valueAsDate = now;
@@ -286,6 +366,5 @@
       startUpdateInterval();
     });
   </script>
-
 </body>
 </html>
